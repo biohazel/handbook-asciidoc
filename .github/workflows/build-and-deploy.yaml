@@ -30,6 +30,9 @@ jobs:
     - name: List files in en directory
       run: ls -al en
 
+    - name: Print contents of Markdown files in en
+      run: cat en/*.md
+
     - name: Convert Markdown to PDF (English)
       run: |
         pandoc en/*.md -o PDF_en-US_Bitcoin_Technology.pdf --pdf-engine=xelatex
@@ -40,6 +43,9 @@ jobs:
 
     - name: List files in pt directory
       run: ls -al pt
+
+    - name: Print contents of Markdown files in pt
+      run: cat pt/*.md
 
     - name: Convert Markdown to PDF (Portuguese)
       run: |
