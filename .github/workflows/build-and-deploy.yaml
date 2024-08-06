@@ -1,0 +1,57 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y pandoc texlive-xetex texlive-fonts-recommended texlive-plain-generic
+        pip install pypandoc markdown
+
+    - name: Convert Markdown to PDF (English)
+      run: |
+        pandoc en/*.md -o PDF_en-US_Bitcoin_Technology.pdf --pdf-engine=xelatex
+
+    - name: Convert Markdown to EPUB (English)
+      run: |
+        pandoc en/*.md -o EPUB_en-US_Bitcoin_Technology.epub
+
+    - name: Convert Markdown to PDF (Portuguese)
+      run: |
+        pandoc pt/*.md -o PDF_pt-BR_Tecnologia_Bitcoin.pdf --pdf-engine=xelatex
+
+    - name: Convert Markdown to EPUB (Portuguese)
+      run: |
+        pandoc pt/*.md -o EPUB_pt-BR_Tecnologia_Bitcoin.epub
+
+    - name: Upload PDF and EPUB
+      uses: actions/upload-artifact@v2
+      with:
+        name: compiled-books
+        path: ./
+        
+    - name: Commit and Push compiled books
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+        git add PDF_en-US_Bitcoin_Technology.pdf EPUB_en-US_Bitcoin_Technology.epub PDF_pt-BR_Tecnologia_Bitcoin.pdf EPUB_pt-BR_Tecnologia_Bitcoin.epub
+        git commit -m 'Add compiled PDF and EPUB books'
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
