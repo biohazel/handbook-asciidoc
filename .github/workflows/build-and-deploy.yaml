@@ -30,47 +30,48 @@ jobs:
     - name: List files in en directory
       run: ls -al en
 
-    - name: Print contents of Markdown files in en
-      run: cat en/*.md
+    - name: Print contents of minimal Markdown file in en
+      run: cat en/minimal.md
 
-    - name: Convert Markdown to PDF (English)
+    - name: Convert Minimal Markdown to PDF (English)
       run: |
-        pandoc en/*.md -o PDF_en-US_Bitcoin_Technology.pdf --pdf-engine=xelatex
+        pandoc en/minimal.md -o PDF_en-US_Bitcoin_Technology.pdf --pdf-engine=xelatex
         echo "Pandoc PDF conversion (English) exit code: $?"
 
-    - name: Convert Markdown to EPUB (English)
+    - name: Convert Minimal Markdown to EPUB (English)
       run: |
-        pandoc en/*.md -o EPUB_en-US_Bitcoin_Technology.epub
+        pandoc en/minimal.md -o EPUB_en-US_Bitcoin_Technology.epub
         echo "Pandoc EPUB conversion (English) exit code: $?"
 
     - name: List files in pt directory
       run: ls -al pt
 
-    - name: Print contents of Markdown files in pt
-      run: cat pt/*.md
+    - name: Print contents of minimal Markdown file in pt
+      run: cat pt/minimal.md
 
-    - name: Convert Markdown to PDF (Portuguese)
+    - name: Convert Minimal Markdown to PDF (Portuguese)
       run: |
-        pandoc pt/*.md -o PDF_pt-BR_Tecnologia_Bitcoin.pdf --pdf-engine=xelatex
+        pandoc pt/minimal.md -o PDF_pt-BR_Tecnologia_Bitcoin.pdf --pdf-engine=xelatex
         echo "Pandoc PDF conversion (Portuguese) exit code: $?"
 
-    - name: Convert Markdown to EPUB (Portuguese)
+    - name: Convert Minimal Markdown to EPUB (Portuguese)
       run: |
-        pandoc pt/*.md -o EPUB_pt-BR_Tecnologia_Bitcoin.epub
+        pandoc pt/minimal.md -o EPUB_pt-BR_Tecnologia_Bitcoin.epub
         echo "Pandoc EPUB conversion (Portuguese) exit code: $?"
 
     - name: Upload PDF and EPUB
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: compiled-books
         path: ./
         
     - name: Commit and Push compiled books
+      env:
+        ACTIONS_PAT: ${{ secrets.ACTIONS_PAT }}
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+        git remote set-url origin https://x-access-token:${{ secrets.ACTIONS_PAT }}@github.com/${{ github.repository }}
         git add PDF_en-US_Bitcoin_Technology.pdf EPUB_en-US_Bitcoin_Technology.epub PDF_pt-BR_Tecnologia_Bitcoin.pdf EPUB_pt-BR_Tecnologia_Bitcoin.epub
         git commit -m 'Add compiled PDF and EPUB books'
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        git push origin main
