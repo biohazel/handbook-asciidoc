@@ -11,10 +11,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: 3.x
 
@@ -24,6 +24,12 @@ jobs:
         sudo apt-get install -y pandoc texlive-xetex texlive-fonts-recommended texlive-plain-generic
         pip install pypandoc markdown
 
+    - name: Check pandoc version
+      run: pandoc --version
+
+    - name: List files in en directory
+      run: ls -al en
+
     - name: Convert Markdown to PDF (English)
       run: |
         pandoc en/*.md -o PDF_en-US_Bitcoin_Technology.pdf --pdf-engine=xelatex
@@ -31,6 +37,9 @@ jobs:
     - name: Convert Markdown to EPUB (English)
       run: |
         pandoc en/*.md -o EPUB_en-US_Bitcoin_Technology.epub
+
+    - name: List files in pt directory
+      run: ls -al pt
 
     - name: Convert Markdown to PDF (Portuguese)
       run: |
@@ -41,7 +50,7 @@ jobs:
         pandoc pt/*.md -o EPUB_pt-BR_Tecnologia_Bitcoin.epub
 
     - name: Upload PDF and EPUB
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: compiled-books
         path: ./
