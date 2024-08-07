@@ -30,6 +30,9 @@ jobs:
     - name: List files in en directory
       run: ls -al en
 
+    - name: List files in assets_en directory
+      run: ls -al en/assets_en
+
     - name: Convert Markdown files to PDF (English)
       run: |
         pandoc en/*.md --resource-path=en -o PDF_en-US_Bitcoin_Technology.pdf --pdf-engine=xelatex
@@ -42,6 +45,9 @@ jobs:
 
     - name: List files in pt directory
       run: ls -al pt
+
+    - name: List files in assets_pt directory
+      run: ls -al pt/assets_pt
 
     - name: Convert Markdown files to PDF (Portuguese)
       run: |
