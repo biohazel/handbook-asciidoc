@@ -151,4 +151,4 @@ Learn more about the origins of Bitcoin:
 
 Bitcoin matters because it represents the first practical solution for creating a decentralized, secure digital currency without the need for intermediaries. It solves fundamental problems in the security of digital transactions, such as double-spending and the need for trust in a central entity.
 
-The technology promotes financial freedom, privacy, and the ability to transfer value globally without restrictions, becoming a revolutionary alternative to traditional financial systems..
+The technology promotes financial freedom, privacy, and the ability to transfer value globally without restrictions, becoming a revolutionary alternative to traditional financial systems...
