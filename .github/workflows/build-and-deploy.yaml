@@ -32,12 +32,12 @@ jobs:
 
     - name: Convert Markdown files to PDF (English)
       run: |
-        pandoc en/*.md -o PDF_en-US_Bitcoin_Technology.pdf --pdf-engine=xelatex
+        pandoc en/*.md --resource-path=en -o PDF_en-US_Bitcoin_Technology.pdf --pdf-engine=xelatex
         echo "Pandoc PDF conversion (English) exit code: $?"
 
     - name: Convert Markdown files to EPUB (English)
       run: |
-        pandoc en/*.md -o EPUB_en-US_Bitcoin_Technology.epub
+        pandoc en/*.md --resource-path=en -o EPUB_en-US_Bitcoin_Technology.epub
         echo "Pandoc EPUB conversion (English) exit code: $?"
 
     - name: List files in pt directory
@@ -45,12 +45,12 @@ jobs:
 
     - name: Convert Markdown files to PDF (Portuguese)
       run: |
-        pandoc pt/*.md -o PDF_pt-BR_Tecnologia_Bitcoin.pdf --pdf-engine=xelatex
+        pandoc pt/*.md --resource-path=pt -o PDF_pt-BR_Tecnologia_Bitcoin.pdf --pdf-engine=xelatex
         echo "Pandoc PDF conversion (Portuguese) exit code: $?"
 
     - name: Convert Markdown files to EPUB (Portuguese)
       run: |
-        pandoc pt/*.md -o EPUB_pt-BR_Tecnologia_Bitcoin.epub
+        pandoc pt/*.md --resource-path=pt -o EPUB_pt-BR_Tecnologia_Bitcoin.epub
         echo "Pandoc EPUB conversion (Portuguese) exit code: $?"
 
     - name: Upload PDF and EPUB
