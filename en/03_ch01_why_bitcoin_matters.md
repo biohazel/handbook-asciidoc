@@ -144,3 +144,5 @@ Printing money to finance bailouts can lead to inflation, reducing the populatio
 
 These consequences illustrate how bank bailouts can have profound and lasting impacts on society, exacerbating inequalities and creating additional risks for long-term economic stability.
 
+\newpage
+
