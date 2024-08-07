@@ -17,14 +17,20 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y asciidoctor
-        gem install asciidoctor-pdf
-        gem install asciidoctor-epub3
+        gem install --user-install asciidoctor-pdf
+        gem install --user-install asciidoctor-epub3
+      env:
+        GEM_HOME: $HOME/.gem
+        PATH: $HOME/.gem/bin:$PATH
 
     - name: Verify AsciiDoctor installation
       run: |
         asciidoctor --version
         asciidoctor-pdf --version
         asciidoctor-epub3 --version
+      env:
+        GEM_HOME: $HOME/.gem
+        PATH: $HOME/.gem/bin:$PATH
 
     - name: List files in en directory
       run: ls -al en
