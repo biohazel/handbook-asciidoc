@@ -57,9 +57,11 @@ jobs:
       env:
         ACTIONS_PAT_3: ${{ secrets.ACTIONS_PAT_3 }}
       run: |
+        export GIT_TRACE=1
+        export GIT_CURL_VERBOSE=1
         git config --global user.name 'github-actions[bot]'
         git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
         git remote set-url origin https://x-access-token:${{ secrets.ACTIONS_PAT_3 }}@github.com/${{ github.repository }}
-        git add PDF_en-US_Bitcoin_Technology.pdf EPUB_en-US_Bitcoin_Technology.epub
-        git commit -m 'Add compiled PDF and EPUB books'
-        git push origin main
+        git add --verbose PDF_en-US_Bitcoin_Technology.pdf EPUB_en-US_Bitcoin_Technology.epub
+        git commit --verbose -m 'Add compiled PDF and EPUB books'
+        git push --verbose origin main
