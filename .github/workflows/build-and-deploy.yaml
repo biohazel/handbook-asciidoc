@@ -13,54 +13,60 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Set up Asciidoctor
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 3.x
+
+    - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y asciidoctor asciidoctor-pdf
+        sudo apt-get install -y asciidoc
+        gem install asciidoctor
+        gem install asciidoctor-pdf
+
+    - name: Check asciidoctor version
+      run: asciidoctor --version
+
+    - name: List files in en directory
+      run: ls -al en
 
     - name: Convert AsciiDoc files to PDF (English)
       run: |
-        asciidoctor-pdf en/*.asciidoc -D output/
-        echo "Asciidoctor PDF conversion (English) exit code: $?"
+        asciidoctor-pdf en/*.adoc -o PDF_en-US_Bitcoin_Technology.pdf
+        echo "AsciiDoctor PDF conversion (English) exit code: $?"
 
     - name: Convert AsciiDoc files to EPUB (English)
       run: |
-        asciidoctor-epub3 en/*.asciidoc -D output/
-        echo "Asciidoctor EPUB conversion (English) exit code: $?"
+        asciidoctor-epub3 en/*.adoc -o EPUB_en-US_Bitcoin_Technology.epub
+        echo "AsciiDoctor EPUB conversion (English) exit code: $?"
+
+    - name: List files in pt directory
+      run: ls -al pt
 
     - name: Convert AsciiDoc files to PDF (Portuguese)
       run: |
-        asciidoctor-pdf pt/*.asciidoc -D output/
-        echo "Asciidoctor PDF conversion (Portuguese) exit code: $?"
+        asciidoctor-pdf pt/*.adoc -o PDF_pt-BR_Tecnologia_Bitcoin.pdf
+        echo "AsciiDoctor PDF conversion (Portuguese) exit code: $?"
 
     - name: Convert AsciiDoc files to EPUB (Portuguese)
       run: |
-        asciidoctor-epub3 pt/*.asciidoc -D output/
-        echo "Asciidoctor EPUB conversion (Portuguese) exit code: $?"
-
-    - name: Convert Additional Docs to PDF
-      run: |
-        asciidoctor-pdf docs/*.asciidoc -D output/
-        echo "Asciidoctor PDF conversion (Additional Docs) exit code: $?"
-
-    - name: Convert Additional Docs to EPUB
-      run: |
-        asciidoctor-epub3 docs/*.asciidoc -D output/
-        echo "Asciidoctor EPUB conversion (Additional Docs) exit code: $?"
+        asciidoctor-epub3 pt/*.adoc -o EPUB_pt-BR_Tecnologia_Bitcoin.epub
+        echo "AsciiDoctor EPUB conversion (Portuguese) exit code: $?"
 
     - name: Upload PDF and EPUB
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: compiled-books
-        path: output/
-        
+        path: ./
+
     - name: Commit and Push compiled books
       env:
-        ACTIONS_PAT: ${{ secrets.ACTIONS_PAT_3 }}
+        ACTIONS_PAT_3: ${{ secrets.ACTIONS_PAT_3 }}
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-        git remote set-url origin https://x-access-token:${{ secrets.ACTIONS_PAT_3 }}@github.com/${{ github.repository }}
-        git add output/*.pdf output/*.epub
+        git remote set-url origin https://x-access-token:${{ secrets.ACTIONS_PAT }}@github.com/${{ github.repository }}
+        git add PDF_en-US_Bitcoin_Technology.pdf EPUB_en-US_Bitcoin_Technology.epub PDF_pt-BR_Tecnologia_Bitcoin.pdf EPUB_pt-BR_Tecnologia_Bitcoin.epub
         git commit -m 'Add compiled PDF and EPUB books'
         git push origin main
