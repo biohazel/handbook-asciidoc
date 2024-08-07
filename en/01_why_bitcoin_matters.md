@@ -42,7 +42,7 @@ Approximately 1.7 billion people worldwide lack access to traditional banking se
 ### Financial Freedom and Protection from Oppressive Regimes
 In some countries, authoritarian governments can freeze bank accounts or confiscate assets arbitrarily. Bitcoin offers a way to protect assets from these actions. In countries with political or financial instability, such as Venezuela, individuals use Bitcoin to safeguard their wealth from hyperinflation and government control.
 
-![image1en](handbook-md/en/assets_en/image1en.png)
+![image1en](assets_en/image1en.png)
 
 ### Facilitation of International Remittances with Lower Fees
 Traditional money remittances, especially to developing countries, can have high fees and take days to process. Bitcoin allows near-instant transfers with much lower fees. Migrant workers sending money to their families can use Bitcoin to avoid high fees from services like Western Union, increasing the amount of money reaching the final recipients.
@@ -50,7 +50,7 @@ Traditional money remittances, especially to developing countries, can have high
 ### Personal Control Over Financial Resources
 With Bitcoin, individuals have full control over their funds without needing intermediaries. This ensures greater autonomy and security in their financial transactions. In crisis situations, such as natural disasters or conflicts, where banks may be inaccessible, people can still access and use their funds with Bitcoin.
 
-![image2en](handbook-md/en/assets_en/image2en.png)
+![image2en](assets_en/image2en.png)
 
 ### Transparency in Transactions and Fraud Prevention
 The Bitcoin blockchain is an immutable public record of all transactions, reducing fraud possibilities and increasing transparency. Human rights organizations can use Bitcoin to receive donations transparently, allowing donors to see exactly how funds are used.
@@ -61,7 +61,7 @@ Bitcoin mining encourages the construction of electrical infrastructure in under
 ### Savings Method
 Bitcoin is the best investment of all time and the best way to preserve purchasing power in the long term as fiat currencies are diluted by inflation. It is an extremely effective long-term savings tool as a scarce digital asset. Furthermore, most people do not have access to the stock market to preserve and grow their income.
 
-![image3en](handbook-md/en/assets_en/image3en.png)
+![image3en](assets_en/image3en.png)
 
 ### Physical Money and Transaction Privacy are Disappearing
 What happens when all our financial activity is trackable by a centralized entity, and we lose the financial privacy of physical money? What powers do governments and corporations gain when we trade our privacy and freedom for convenience? Each financial transaction reveals a vast amount of information about you, enabling control by corporations and governments, censorship of your transactions, and enabling surveillance and social engineering.
@@ -78,7 +78,7 @@ Bitcoin offers humans money that cannot be censored by authorities, cannot be de
 
 Recommended Reading: Check Your Financial Privilege.
 
-![image4en](handbook-md/en/assets_en/image4en.png)
+![image4en](assets_en/image4en.png)
 
 ## 1.4 The Byzantine Generals Problem
 
@@ -88,7 +88,7 @@ The Byzantine Generals Problem is a classic issue in computer science, specifica
 
 In this scenario, a traitor (whether the Commander or a Lieutenant) prevents the group from reaching consensus. In a financial ledger, think of the traitor as a malicious party aiming to facilitate fraudulent transactions. As the number of parties in the system increases, the number of communication channels (and opportunities for distrust) increases exponentially. Imagine the complexity of building consensus with thousands or millions of parties involved. The following schemes are attributed to Lamport, Shostak, Pease, 1982.
 
-![image5en](handbook-md/en/assets_en/image5en.png)
+![image5en](assets_en/image5en.png)
 
 The solution to the Byzantine Generals Problem consists of combining probabilistic work (trial and error) in discovering the nonce that generates a hash equal to or below the difficulty level defined in the mining process, plus selecting the chain with the highest cumulative proof-of-work, meaning the greatest computational power employed to form it.
 
@@ -101,54 +101,8 @@ A whitepaper is an informative and technical document that presents the vision, 
 
 The Bitcoin whitepaper, titled "Bitcoin: A Peer-to-Peer Electronic Cash System," was released by Satoshi Nakamoto on October 31, 2008. It was published on a cryptography mailing list called "The Cryptography Mailing List" on the website metzdowd.com, detailing the structure and operation of a decentralized electronic payment system.
 
-![image6en](handbook-md/en/assets_en/image6en.png)
+![image6en](assets_en/image6en.png)
 
 This document introduced innovative concepts that revolutionized the global financial system and have been used in various ways for the development of thousands of other cryptocurrencies and blockchain technologies.
 
-It all started with Bitcoin, which remains the most important, decentralized, and robust candidate for a global financial system and store of value without a central authority. Many consider all other cryptocurrencies as centralized attempts to counterfeit Bitcoin.
-
-In fact, governments are migrating their financial systems to CBDCs (Central Bank Digital Currencies), systems inspired by Bitcoin technology but allowing for extreme surveillance and Orwellian control, as they operate through centralized control.
-
-Since Bitcoin is open-source, anyone can copy its ideas and build new systems. However, only the Bitcoin derived from Satoshi Nakamoto's first version is a true peer-to-peer electronic cash system.
-
-The Bitcoin software was released by Satoshi Nakamoto on January 3, 2009. On that day, Satoshi mined the genesis block, the first block of the Bitcoin blockchain, officially marking the beginning of the Bitcoin network.
-
-### Message in the Genesis Block
-In the genesis block, Satoshi Nakamoto left a significant message: "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks."
-
-![image7en](handbook-md/en/assets_en/image7en.png)
-
-This message is a reference to the headline of the British newspaper "The Times" on January 3, 2009, highlighting the global financial crisis and the imminent second bailout of banks by the government. Including this message was an implicit critique of the traditional financial system and a statement of intent regarding the need for an alternative, decentralized financial system resistant to manipulation and government intervention.
-
-### Negative Consequences of a Second Bank Bailout
-
-- **Economic Inequality**: Bank bailouts often benefit large financial institutions and their stakeholders, while the general population bears the costs through taxes and austerity. This can increase economic inequality as public resources are used to save wealthy private entities.
-
-- **Moral Hazard**: Bailouts encourage banks to take excessive risks, knowing they will be saved in case of failure. This risky behavior can lead to irresponsible practices, increasing the likelihood of future financial crises.
-
-- **Increase in Public Deficit**: The use of public resources for bailouts increases government debt, potentially resulting in austerity measures, cuts in essential public services, and tax increases, directly affecting the quality of life of the population.
-
-- **Erosion of Public Trust**: The perception that banks are favored by the government can erode public trust in the financial system and economic justice, generating social discontent and a possible loss of legitimacy of institutions.
-
-- **Social Impacts**: Printing money to finance bailouts can lead to inflation, reducing the population's purchasing power. Austerity measures and cuts in public services can result in unemployment and a broader economic crisis, directly affecting people's lives.
-
-These consequences illustrate how bank bailouts can have profound and lasting impacts on society, exacerbating inequalities and creating additional risks for long-term economic stability.
-
-## 1.6 Academic Origins
-
-Bitcoin has an academic pedigree, being an innovative and creative solution to traditional financial systems. It is the culmination of decades of research in cryptography and distributed systems.
-
-The concept of Bitcoin integrates discoveries and theories from researchers in cryptography, such as David Chaum, and in distributed systems, such as Nick Szabo and Wei Dai. All these authors emphasized the importance of privacy and anonymity in financial transactions, concepts that were incorporated into Bitcoin's design.
-
-Learn more about the origins of Bitcoin:
-[https://nakamotoinstitute.org/literature/](https://nakamotoinstitute.org/literature/)
-
-- **March 9, 1993**: A Cypherpunk's Manifesto—Eric Hughes
-- **November 1998**: b-money—Wei Dai
-- **August 1, 2002**: Hashcash - A Denial of Service Counter-Measure—Adam Back
-- **October 31, 2008**: Bitcoin: A Peer-to-Peer Electronic Cash System—Satoshi Nakamoto
-- **August 29, 2017**: Bitcoin's Academic Pedigree—Arvind Narayanan and Jeremy Clark
-
-Bitcoin matters because it represents the first practical solution for creating a decentralized, secure digital currency without the need for intermediaries. It solves fundamental problems in the security of digital transactions, such as double-spending and the need for trust in a central entity.
-
-The technology promotes financial freedom, privacy, and the ability to transfer value globally without restrictions, becoming a revolutionary alternative to traditional financial systems...
+It all started with Bitcoin, which remains the most important, decentralized, and robust candidate for a
